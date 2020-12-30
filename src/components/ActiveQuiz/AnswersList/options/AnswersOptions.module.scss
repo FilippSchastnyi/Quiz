@@ -1,0 +1,19 @@
+.AnswersOptions {
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 5px 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  &:hover{
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+}
+.success{
+  background-color: rgb(68, 240, 21);
+}
+.false{
+  background-color: rgb(240, 21, 98);
+}
