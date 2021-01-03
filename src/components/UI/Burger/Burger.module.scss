@@ -1,5 +1,6 @@
 .Burger {
-  position: relative;
+  position: absolute;
+  right: 0;
   background: #fff;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
@@ -11,7 +12,7 @@
     display: block;
     width: 32px;
     height: 3px;
-    background-color: #7C8292;
+    background-color: #0041f6;
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
@@ -24,7 +25,7 @@
       display: block;
       width: 32px;
       height: 3px;
-      background-color: #7C8292;
+      background-color: #0041f6;
       transition: all 0.3s ease;
     }
 
@@ -34,7 +35,6 @@
   }
 
   &.open {
-    transform: translateX(300px);
     i {
       background-color: transparent;
 
