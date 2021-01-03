@@ -1,0 +1,18 @@
+.Button {
+  display: inline-block;
+  padding: 6px 12px;
+  color: #e2e2e2;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 12px;
+  transition: 0.15s ease-in-out;
+  background-color: #23507a;
+
+  &:hover {
+    background-color: #446bd6;
+  }
+
+  &:active{
+    background-color: #214dc8;
+  }
+}
