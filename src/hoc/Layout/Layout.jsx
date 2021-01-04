@@ -15,11 +15,18 @@ class Layout extends Component {
         })
     }
 
+    onBackdropClick() {
+        this.setState({
+            isOpen: false
+        })
+    }
+
     render() {
         return (
             <div className={classes.Layout}>
                 <Nav
-                isOpen = {this.state.isOpen}
+                    isOpen={this.state.isOpen}
+                    onBackdropClick={this.onBackdropClick.bind(this)}
                 />
                 <Burger
                     onToggle={this.handleBurgerClick.bind(this)}
