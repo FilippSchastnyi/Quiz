@@ -1,9 +1,13 @@
 import React from "react";
+import {NavLink} from "react-router-dom";
+
 
 const NavOptions = props => {
     return (
-        <li>
-            <a href="#">{props.link}</a>
+        <li onClick={props.onClick}>
+            <NavLink exact={props.exact} to={props.to}>
+                {props.label}
+            </NavLink>
         </li>
     )
 }

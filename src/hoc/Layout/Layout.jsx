@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import classes from './Layout.module.scss'
-import Quiz from "../../containers/Quiz/Quiz";
 import Burger from "../../components/UI/Burger/Burger";
 import Nav from "../../components/Navigation/Nav";
 
@@ -33,7 +32,7 @@ class Layout extends Component {
                     isOpen={this.state.isOpen}
                 />
                 <main>
-                    <Quiz/>
+                    {this.props.children}
                 </main>
             </div>
         )
