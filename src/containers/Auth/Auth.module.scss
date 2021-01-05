@@ -1,0 +1,20 @@
+.Auth {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  flex: 1 0 100%;
+  background: linear-gradient(270deg, #cef2fa 0%, #59bfef 100%);
+
+  h2{
+    text-align: center;
+    color: #0041f6;
+  }
+
+  .Form {
+    background-color: #eee;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+  }
+}
+

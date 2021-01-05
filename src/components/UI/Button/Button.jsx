@@ -7,7 +7,11 @@ const Button = props => {
         classes[props.type]
     ]
 
-    return(
+    if (props.mode === 'green') {
+        cls.push(classes.green)
+    }
+
+    return (
         <button className={cls.join(' ')}
                 onClick={props.onClick}
         >{props.label}

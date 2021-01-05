@@ -1,0 +1,18 @@
+@import "src/css/config/colors";
+.QuizList {
+  display: flex;
+  justify-content: center;
+  padding-top: 100px;
+  background: linear-gradient(90deg, #fd8355 0%, #f0576c 37%, #f79cbd 100%);
+  flex: 1 0 100%;
+
+  li {
+    font-size: 24px;
+    margin-top: 10px;
+    color: $color-white;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+}

@@ -1,10 +1,12 @@
+@import "src/css/config/colors";
+
 .Button {
   display: inline-block;
   padding: 6px 12px;
   color: #e2e2e2;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 16px;
-  border-radius: 12px;
+  border-radius: 5px;
   transition: 0.15s ease-in-out;
   background-color: #23507a;
 
@@ -12,7 +14,21 @@
     background-color: #446bd6;
   }
 
-  &:active{
+  &:active {
     background-color: #214dc8;
+  }
+}
+
+.green {
+  background-color: #45d628;
+  color: $color-black;
+
+
+  &:hover {
+    background-color: #81cf70;
+  }
+
+  &:active {
+    background-color: #3ed91e;
   }
 }

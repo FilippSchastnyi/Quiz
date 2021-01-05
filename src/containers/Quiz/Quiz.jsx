@@ -118,7 +118,7 @@ class Quiz extends Component {
         }
     }
 
-    retryHandler()  {
+    retryHandler() {
         this.setState({
             questionCounter: 0,
             answerState: null,
