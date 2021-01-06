@@ -1,0 +1,31 @@
+.Input {
+  margin-top: 15px;
+  &.invalid{
+    label{
+      color: #f0576c;
+    }
+  }
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+  }
+
+  input {
+    display: block;
+    border: 1px solid #e2e2e2;
+    padding: 7px;
+    width: 100%;
+    transition: all 0.3s ease-in-out;
+  }
+
+  span {
+    color: #f0576c;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
