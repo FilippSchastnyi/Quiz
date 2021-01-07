@@ -7,6 +7,10 @@ const Button = props => {
         classes[props.type]
     ]
 
+    if ((props.disabled)) {
+        cls.push(classes.disabled)
+    }
+
     if (props.mode === 'green') {
         cls.push(classes.green)
     }
