@@ -2,6 +2,8 @@ import React from "react";
 import classes from "./ActiveQuiz.module.scss";
 import AnswersList from "./AnswersList/AnswersList";
 
+
+
 const ActiveQuiz = props => (
     <div className={classes.ActiveQuiz}>
         <p className={classes.Question}>
@@ -13,7 +15,7 @@ const ActiveQuiz = props => (
         <AnswersList
             answers={props.answers}
             onHandleLinkClick={props.onHandleLinkClick}
-            state = {props.state}
+            state={props.state}
         />
     </div>
 )

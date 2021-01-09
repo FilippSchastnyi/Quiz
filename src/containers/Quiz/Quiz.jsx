@@ -2,75 +2,35 @@ import React, {Component} from "react";
 import classes from './Quiz.module.scss'
 import ActiveQuiz from "../../components/ActiveQuiz/ActiveQuiz";
 import FinishQuiz from "../../components/FinishQuiz/FinishQuiz";
-
+import axios from "../../axios/axios-quiz";
+import Loader from "../../components/UI/Loader/Loader";
 
 class Quiz extends Component {
 
     state = {
         results: {},
+        loading: true,
         isFinish: false,
         answerState: {},
         answerLog: {},
         questionCounter: 0,
-        quiz: [
-            {
-                id: 1,
-                rightAnswer: 1,
-                question: 'Вопрос номер 1 ?',
-                answers: [
-                    {text: 'Вопрос 1', id: 1},
-                    {text: 'Вопрос 2', id: 2},
-                    {text: 'Вопрос 3', id: 3},
-                    {text: 'Вопрос 4', id: 4},
-                ]
-            },
-            {
-                id: 2,
-                rightAnswer: 2,
-                question: 'Вопрос номер 2 ?',
-                answers: [
-                    {text: 'Вопрос 1', id: 1},
-                    {text: 'Вопрос 2', id: 2},
-                    {text: 'Вопрос 3', id: 3},
-                    {text: 'Вопрос 4', id: 4},
-                ]
-            },
-            {
-                id: 3,
-                rightAnswer: 2,
-                question: 'Вопрос номер 3?',
-                answers: [
-                    {text: 'Вопрос 1', id: 1},
-                    {text: 'Вопрос 2', id: 2},
-                    {text: 'Вопрос 3', id: 3},
-                    {text: 'Вопрос 4', id: 4},
-                ]
-            },
-            {
-                id: 4,
-                rightAnswer: 2,
-                question: 'Вопрос номер 4?',
-                answers: [
-                    {text: 'Вопрос 1', id: 1},
-                    {text: 'Вопрос 2', id: 2},
-                    {text: 'Вопрос 3', id: 3},
-                    {text: 'Вопрос 4', id: 4},
-                ]
-            },
-            {
-                id: 5,
-                rightAnswer: 2,
-                question: 'Вопрос номер 5?',
-                answers: [
-                    {text: 'Вопрос 1', id: 1},
-                    {text: 'Вопрос 2', id: 2},
-                    {text: 'Вопрос 3', id: 3},
-                    {text: 'Вопрос 4', id: 4},
-                ]
-            },
-        ]
+        quiz: [],
     }
 
+
+    async componentDidMount() {
+        try {
+            const response = await axios.get(`/quizes/${this.props.match.params.id}.json`)
+            const quiz = response.data
+
+            this.setState({
+                quiz: quiz,
+                loading: false,
+            })
+        } catch (e) {
+            console.log(e)
+        }
+    }
 
     onHandleLinkClick = (id) => {
 
@@ -83,7 +43,7 @@ class Quiz extends Component {
         const question = this.state.quiz[counter]
         const results = this.state.results
 
-        if (question.rightAnswer === id) {
+        if (question.rightAnswerId === id) {
             if (!results[question.id]) {
                 results[question.id] = 'success'
             }
@@ -133,15 +93,18 @@ class Quiz extends Component {
             <div className={classes.Quiz}>
                 <div className={Quiz.wrapper}>
                     <h1>Welcome to Quiz</h1>
+
                     {
-                        this.state.isFinish
+                        this.state.loading
+                            ? <Loader/>
+                            : this.state.isFinish
                             ? <FinishQuiz
                                 results={this.state.results}
                                 quiz={this.state.quiz}
                                 onRetry={this.retryHandler.bind(this)}
                             />
                             : <ActiveQuiz
-                                answers={this.state.quiz[this.state.questionCounter].answers}
+                                answers={this.state.quiz[this.state.questionCounter].answer}
                                 question={this.state.quiz[this.state.questionCounter].question}
                                 onHandleLinkClick={this.onHandleLinkClick}
                                 quizLength={this.state.quiz.length}
